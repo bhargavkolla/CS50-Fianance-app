@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Hisrory
+{% endblock %}
+
+{% block main %}
+   <div class="container">
+       <table class="table tabe-striped">
+           <thead>
+               <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Shares</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Datetime</th>
+                </tr>
+           </thead>
+           <tbody>
+               {% for row in fil %}
+               <tr>
+                <td scope="row">{{row["type"]}}</td>
+                <td scope="row">{{row["stock"]}}</td>
+                <td scope="row">{{row["name"]}}</td>
+                <td scope="row">{{row["shares"]}}</td>
+                <td scope="row">${{row["price"]}}</td>
+                <td scope="row">${{row["cash"]}}</td>
+                <td scope="row">{{row["datetime"]}}</td>
+               </tr>
+               {% endfor %}
+           </tbody>
+
+       </table>
+   </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+        <div class="conatiner">
+            <h2>Portfolio</h2>
+             <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Symbol</th>
+            <th scope="col">Name</th>
+            <th scope="col">Shares</th>
+            <th scope="col">Price</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for row in stonk %}
+            <tr>
+                <td scope="row">{{row["stock"]}}</td>
+                <td scope="row">{{row["name"]}}</td>
+                <td scope="row">{{row["sum(shares)"]}}</td>
+                <td scope="row">{{row["price"] | usd}}</td>
+                <td scope="row">{{row["total"] | usd}}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td scope="row">CASH</td>
+                <td scope="row"></td>
+                <td scope="row"></td>
+                <td scope="row"></td>
+                <td scope="row">{{cash | usd}}</td>
+            </tr>
+             <tr>
+                <td scope="row"></td>
+                <td scope="row"></td>
+                <td scope="row"></td>
+                <td scope="row"></td>
+                <td scope="row">{{avail | usd}}</td>
+            </tr>
+
+        </tbody>
+        </table>
+{% endblock %}
