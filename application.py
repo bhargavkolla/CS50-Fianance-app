@@ -63,8 +63,8 @@ def index():
     cash=float(db.execute("select cash from users where id=?",session["user_id"])[0]["cash"])
     if len(stonk)==0:
         stonk.append({"stock":"NONE","name":"NONE","sum(shares)":"-"})
-        stonk[0]["price"]="0"
-        stonk[0]["total"]="0"
+        stonk[0]["price"]=0
+        stonk[0]["total"]=0
     else:
         for row in stonk:
             x=float(lookup(row["stock"])["price"])
